@@ -83,6 +83,7 @@ def fit_logistic(offers, model_vars, interaction = False):
         - result : fitted logistic regression model for the offers dataset, fitted with the statsmodel package
         - forula: a string with the formula containing the independent variables from the model
         - exog_val: DesignMatrix from the patsy package with the data form the independent variables
+        - X_val: DataFrame for the independent variables from the validation set
         - y_val: array for the "completed" variable, our dependent variable in the model
 
     '''
