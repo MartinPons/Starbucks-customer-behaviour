@@ -6,7 +6,6 @@ import pandas as pd
 class Customer:
 
     def __init__(self, transcript, customer):
-
         self.id = customer
 
         ## Events attribute: data frame of events where customer is participant
@@ -85,7 +84,8 @@ class Customer:
             self.offers[offer]["when_viewed"] = None
             self.offers[offer]["when_completed"] = None
 
-            # taking into account that the same offer can be viewed more than once. We only count the first time it is viewed
+            # taking into account that the same offer can be viewed more than once.
+            # We only count the first time it is viewed
             if len(offer_events[offer_events.event == "offer viewed"].time.values != 0) and self.offers[offer][
                 "when_viewed"] is None:
                 self.offers[offer]["when_viewed"] = int(offer_events[self.events.event == "offer viewed"].time.values)
@@ -94,7 +94,7 @@ class Customer:
                 self.offers[offer]["when_completed"] = int(
                     offer_events[self.events.event == "offer completed"].time.values)
 
-        ## Amounts attribute: dictionary with every amount spent, including timestamp
+        ## transactions attribute: dictionary with every amount spent, including timestamp
 
         self.transactions = dict()
 

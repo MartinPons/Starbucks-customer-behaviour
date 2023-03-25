@@ -148,6 +148,6 @@ def model_outcome(result, exog_val, y_val):
     print("Confusion matrix")
     print(confusion_matrix(y_val, y_val_pred))
     print("")
-    print("Scoring")
+    print("Calssification report")
     print(classification_report(y_val, y_val_pred, digits=2))
 
