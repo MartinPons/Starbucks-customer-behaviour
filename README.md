@@ -52,7 +52,7 @@ The model with interaction performs slighly better than the base model. Being th
 
 Below there is a plot summarizing the likelihood of completing an offer for every group in the validation set, leaving the income to its average value
 
-![Discount prob plot] (https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/probability_groups_point_discount.jpg)
+![Discount prob plot](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/probability_groups_point_discount.jpg)
 
 
 
