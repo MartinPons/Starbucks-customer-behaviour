@@ -12,7 +12,7 @@ The Starbucks simulated dataset, which mimics real data of customer behaviour re
 
 The Starbucks dataset consists in three tables
 
-- profile: table of 17.000 customers with demographic data and suscription date
+- profile: table of 17.000 customers with demographic data, like age, income and gender, and suscription date
 - portfolio: table containing the features of the different offers. There are 10 rows corresponding to 10 differnt feature combinations
 - transcript: log of events containing offers recevied, viewed and completed, and transactions.
 
@@ -29,6 +29,12 @@ The first two have a reward for the customer, that are self explanatory. The inf
 
 
 ## Preparation
+
+The exploration phase gave some interesting features, specially one related to the time a person became member: there are two periods when the number of customers spikes sudenly, giving three different generations of customers.
+
+
+![generations](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/generations.jpg)
+
 
 The nature of the log of events table and the very concept of completion offer makes the data wrangling an arduous process, where one have to keep track of when an offer is received, viewed and completed. Since one can only infere that an offer has influenced the desicion to buy a product if it has been viewed, an offer can only be counted as completed if there is a *view* event that goes before a *completion* event. 
 
