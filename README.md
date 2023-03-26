@@ -67,29 +67,26 @@ Before fitting, the data is separated in a training set and in a validation set.
 
 The model with interaction performs slighly better than the base model. Being the F1 score for non-completion 0.73, and the F1 score for completion 0.59. Generally, people from the second generation, females, people who identify with other gender, people older than 35 and people who receive the offer through social channels have a higher liklelihood of completion. The influence of social channels is strong specially for Discount offers while being from Gen 2 is also important in predicting completion for BOGO offers. This two type of offers however, don't present strong differences when it comes to age and gender. It was found that overall, income does not significantly affect the likelihood of completing an offer.
 
-Below there is a plot summarizing the likelihood of completing an offer for every group in the validation set, leaving the income to its average value
+Below there is a plot summarizing the likelihood of completing an offer for every group in the validation set, leaving the income to its average value.
 
 ![Discount prob plot](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/probability_groups_point_discount.jpg)
 
 
 ## File description
 
-- **StarbucksAnalysis**: module made specifically for this analysis. It's structured in three files
+- **StarbucksAnalysis**: module made specifically for this analysis. It's structured in three files.
 	- Customer.py: contains the `Customer` class. It's use to wrangle the data of the log events in the `transcript` data frame. In its current form, it only contains one method to properly classify the offers according to the completion status, but more methods are going to be added in the future in order to enrich and refocus the analysis, like a method to assign total amounts that are made because of an offer, and amounts corresponding to transactions made with no offer being the cause.
 	- model.py: contains the function `fit_logistic` to prepare and fit the data of logistic models, with and without interactions with the type of offer, and other functions  to print the outcome and the model summary in a more readable way.
 	-  visualizations.py: functions for visualize the data for communicative purposes.
--**processed_data**: folder containing two csv files, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
+-**processed_data**: folder containing a csv file and a pickle file, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
 -**raw_data**: folder containing the three files from the Starbucks dataset: `portfolio`, `profile` and `transcript`.
 -**visualizations**: folder with the visualizations used to communicate the findings of the analysis.
-
-- **01-Data Wrangling.ipynb** notebook with the data wrangling process. The outcome of this process is the `offers` data frame, with the completion status of each offer properly classified
+- **01-Data Wrangling.ipynb** notebook with the data wrangling process. The outcome of this process is the `offers` data frame, with the completion status of each offer properly classified.
 - **02-EDA.ipynb**: notebook with the data exploration which includes visualization, tables and briefly explains the interesting findings. Additional cleaning is also perfomed in this notebook.
 - **03-Modeling.ipynb**: notebook containing the model fitting and the outcome.
-- **04-visualizations.ipynb**: notebook with the codes for the visualizations that are used to communicate the results
-
-- **requirements.txt: requirements file with the modules used in the analysis
-- ** Analysis of hotel bookings.ipynb: jupyter notebook with the analysis.
-
+- **04-visualizations.ipynb**: notebook with the codes for the visualizations that are used to communicate the results.
+- **README.md**: a readme file with a summary of the analysis.
+- **requirements.txt**: requirements file with the modules used in the analysis.
 
 
 
