@@ -6,39 +6,49 @@ Targeted marketing has become a necessity in the communication strategy of every
 
 A data agnostic strategy that relies heavily on mass emails messages and other forms of communication  not only requires a significant investment in marketing campaigns but can also be counterproductive when the messages are perceived as an annoyance or lacking of value for the potential customer. Such negative perceptions can have a detrimental impact on the company's image as a whole, and can ultimately discourage future purchases or engagement.
 
-The Starbucks simulated dataset, which mimics real data of customer behaviour relative to different offers the company send to people in its data base proviedes an excelent opportunity to analyze how different types of customers react to different promotions. One way to analyze consumer behavior is by examining the probability of them completing an offer sent by Starbucks, by cross-referencing the consumer's demographic characteristics and the features of the offer itself. With a sensible data exporation and simple modeling one can extract interesting and useful insights that could be applied in practice for future campaigns.
+The Starbucks simulated dataset, which mimics real data of customer behaviour relative to different offers the company send to people in its data base proviedes an excelent opportunity to analyze how different types of customers react to different promotions. One way to analyze consumer behavior is by examining the probability of them completing an offer sent by Starbucks, by cross-referencing the consumer's demographic characteristics and the features of the offer itself, mainly, which type of offer generates a higher response for every type of customer. With a sensible data exporation and simple modeling one can extract interesting and useful insights that could be applied in practice for future campaigns.
 
 ## Data
 
 The Starbucks dataset consists in three tables
 
-- profile: table of 17.000 customers with demographic data, like age, income and gender, and suscription date
-- portfolio: table containing the features of the different offers. There are 10 rows corresponding to 10 differnt feature combinations
-- transcript: log of events containing offers recevied, viewed and completed, and transactions.
+- *profile*: table of 17.000 customers with demographic data, like age, income and gender, and suscription date
+- *portfolio*: table containing the features of the different offers. There are 10 rows corresponding to 10 differnt feature combinations
+- *transcript*: log of events containing offers recevied, viewed and completed, and transactions.
 
 
 The transcript table is a log event for different profiels that entered in the database or "became member", from jul. 2013 to jul. 2018. Events are registered for aprrox. one month for each client.
 
 THe main feature that differenciates the offers, present in the *portafilo* table is the offer type. There are three different types of offers
 
-- BOGO (buy one, get one)
-- Discount
-- Informational
+- **BOGO** (buy one, get one)
+- **Discount**
+- **Informational**
 
 The first two have a reward for the customer, that are self explanatory. The informational offer is just that. It doesn't involve any kind of reward.
 
 
+
+
 ## Preparation
-
-The exploration phase gave some interesting features, specially one related to the time a person became member: there are two periods when the number of customers spikes sudenly, giving three different generations of customers.
-
-
-![generations](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/generations.jpg)
-
 
 The nature of the log of events table and the very concept of completion offer makes the data wrangling an arduous process, where one have to keep track of when an offer is received, viewed and completed. Since one can only infere that an offer has influenced the desicion to buy a product if it has been viewed, an offer can only be counted as completed if there is a *view* event that goes before a *completion* event. 
 
 For a more proper management of the event log data a `Custormer` class has been created, which structures each customer in a jerarquical structure where the information is contained in separate attributes for offers and transactions.
+
+
+## Exploration
+
+The exploration phase gave some interesting features, specially one related to the time a person became member: there are two periods when the number of customers spikes sudenly, and remains constant until the next spike, giving three different generations of customers.
+
+
+![generations](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/generations.jpg)
+
+It turns out this variable is one of the strongers predictors of the likelihood of a completion for BOGO offers, even when controlling for income, age and sex. There must be some underlying factor that define in a relevant way the characteristics of these three generations. The following plot reveals this difference when controling for gender.
+
+![seniority_gender](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/completion_rate_by_seniority_and_gender.jpg)
+
+Strong effects were also found for the channel distribution, and effects of some importance for age and gender, which are detailed in the blog post...
 
 
 ## Modeling
