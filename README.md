@@ -44,32 +44,51 @@ The exploration phase gave some interesting features, specially one related to t
 
 ![generations](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/generations.jpg)
 
+
 It turns out this variable is one of the strongers predictors of the likelihood of a completion for BOGO offers, even when controlling for income, age and sex. There must be some underlying factor that define in a relevant way the characteristics of these three generations. The following plot reveals this difference when controling for gender.
+
 
 ![seniority_gender](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/completion_rate_by_seniority_and_gender.jpg)
 
 Strong effects were also found for the channel distribution, and effects of some importance for age and gender, which are detailed in the blog post...
 
 
+
 ## Modeling
 
-Since the major difference among the offer characteristics is the offer type, the main goal of the analysis is to know how different customer characteristics affect the likelyhood of completion for each type of offer. And since having an explicative outocme is essencial to ... two logistic models have been fitted
-
-The difference between these models is how the offer type has been introduced: in the first model, it's specified as a predictor together with other potential predictors like income or age. In the second model the offer type interacts with every other variable in the model. If this second model perform better than the former. It's concluded that the offer types affect in a different way different groups of people.
+Since the major difference among the offer characteristics is the offer type, the main goal of the analysis is to know how different customer characteristics affect the likelihood of completion for each type of offer. Since this goal is explanatory in nature, a model which provides an explanatory outcome is needed. Taking this in mind two different logistic models have been fitted . These models differ in how the offer type has been introduced: in the first model, it's specified as a predictor together with other potential predictors like income or age. In the second model the offer type interacts with every other variable in the model. If this second model perform better than the former., it's concluded that the offer types affect in a different way different groups of people.
 
 No additional models have been tested. A more complex modeling could have been tried, increasing interception layers corrisng, age, gender and channel in a unique predictor for instance, but simplicity for the results has been prioritized over a more accuracte prediction.
 
+Before fitting, the data is separated in a training set and in a validation set. Precision, recall and F1 score are produced to compare the two models. To measure the influence of the variables in the outcome, practical effects computing effect sizes through the odds-ratio have been prefered over p-values in search of statistically significant effects (with such a high number of observations is not rare to find statistically significant effects with almost null practicall effects).
 
-## Evaluation
 
-Before fitting, the data is separated in a training set and in a validation set. Precision, recall and F1 score are produced to compare the two models.
+## Results
 
-The model with interaction performs slighly better than the base model. Being the F1 score for non-completion 0.73, and the F1 score for completion 0.59. Generally, people from the second generation, females, people who identify with other gender, people older than 35 and people who receive the offer through social channels have a higher liklelihood of completion. The influence of social channels is strong specially for Discount offers while,  being from Gen 2 is more important for BOGO offers. This two type of offers however, don't present strong differences when it comes to demographic features like age or gender. It was found that overall, the in come does not significantly affect the likelihood of completing an offer.
+The model with interaction performs slighly better than the base model. Being the F1 score for non-completion 0.73, and the F1 score for completion 0.59. Generally, people from the second generation, females, people who identify with other gender, people older than 35 and people who receive the offer through social channels have a higher liklelihood of completion. The influence of social channels is strong specially for Discount offers while being from Gen 2 is also important in predicting completion for BOGO offers. This two type of offers however, don't present strong differences when it comes to age and gender. It was found that overall, income does not significantly affect the likelihood of completing an offer.
 
 Below there is a plot summarizing the likelihood of completing an offer for every group in the validation set, leaving the income to its average value
 
 ![Discount prob plot](https://github.com/MartinPons/Starbucks-customer-behaviour/blob/main/visualizations/probability_groups_point_discount.jpg)
 
+
+## File description
+
+- **StarbucksAnalysis**: module made specifically for this analysis. It's structured in three files
+	- Customer.py: contains the `Customer` class. It's use to wrangle the data of the log events in the `transcript` data frame. In its current form, it only contains one method to properly classify the offers according to the completion status, but more methods are going to be added in the future in order to enrich and refocus the analysis, like a method to assign total amounts that are made because of an offer, and amounts corresponding to transactions made with no offer being the cause.
+	- model.py: contains the function `fit_logistic` to prepare and fit the data of logistic models, with and without interactions with the type of offer, and other functions  to print the outcome and the model summary in a more readable way.
+	-  visualizations.py: functions for visualize the data for communicative purposes.
+-**processed_data**: folder containing two csv files, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
+-**raw_data**: folder containing the three files from the Starbucks dataset: `portfolio`, `profile` and `transcript`.
+-**visualizations**: folder with the visualizations used to communicate the findings of the analysis.
+
+- **01-Data Wrangling.ipynb** notebook with the data wrangling process. The outcome of this process is the `offers` data frame, with the completion status of each offer properly classified
+- **02-EDA.ipynb**: notebook with the data exploration which includes visualization, tables and briefly explains the interesting findings. Additional cleaning is also perfomed in this notebook.
+- **03-Modeling.ipynb**: notebook containing the model fitting and the outcome.
+- **04-visualizations.ipynb**: notebook with the codes for the visualizations that are used to communicate the results
+
+- **requirements.txt: requirements file with the modules used in the analysis
+- ** Analysis of hotel bookings.ipynb: jupyter notebook with the analysis.
 
 
 
