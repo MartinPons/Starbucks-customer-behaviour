@@ -31,7 +31,6 @@ The first two have a reward for the customer, that are self explanatory. The inf
 
 
 
-
 ## Preparation
 
 The nature of the log of events table and the very concept of completion offer makes the data wrangling an arduous process, where one have to keep track of when an offer is received, viewed and completed. Since one can only infere that an offer has influenced the desicion to buy a product if it has been viewed, an offer can only be counted as completed if there is a *view* event that goes before a *completion* event. 
@@ -80,8 +79,8 @@ Below there is a plot summarizing the likelihood of completing an offer for ever
 	- Customer.py: contains the `Customer` class. It's use to wrangle the data of the log events in the `transcript` data frame. In its current form, it only contains one method to properly classify the offers according to the completion status, but more methods are going to be added in the future in order to enrich and refocus the analysis, like a method to assign total amounts that are made because of an offer, and amounts corresponding to transactions made with no offer being the cause.
 	- model.py: contains the function `fit_logistic` to prepare and fit the data of logistic models, with and without interactions with the type of offer, and other functions  to print the outcome and the model summary in a more readable way.
 	-  visualizations.py: functions for visualize the data for communicative purposes.
--**processed_data**: folder containing a csv file and a pickle file, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
--**raw_data**: folder containing the three files from the Starbucks dataset: `portfolio`, `profile` and `transcript`.
+- **processed_data**: folder containing a csv file and a pickle file, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
+- **raw_data**: folder containing the three files from the Starbucks dataset: `portfolio`, `profile` and `transcript`.
 -**visualizations**: folder with the visualizations used to communicate the findings of the analysis.
 - **01-Data Wrangling.ipynb** notebook with the data wrangling process. The outcome of this process is the `offers` data frame, with the completion status of each offer properly classified.
 - **02-EDA.ipynb**: notebook with the data exploration which includes visualization, tables and briefly explains the interesting findings. Additional cleaning is also perfomed in this notebook.
