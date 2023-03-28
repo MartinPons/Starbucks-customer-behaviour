@@ -8,6 +8,8 @@ A data agnostic strategy that relies heavily on mass emails messages and other f
 
 The Starbucks simulated dataset, which mimics real data of customer behaviour relative to different offers the company send to people in its data base proviedes an excelent opportunity to analyze how different types of customers react to different promotions. One way to analyze consumer behavior is by examining the probability of them completing an offer sent by Starbucks, by cross-referencing the consumer's demographic characteristics and the features of the offer itself, mainly, which type of offer generates a higher response for every type of customer. With a sensible data exporation and simple modeling one can extract interesting and useful insights that could be applied in practice for future campaigns.
 
+[In this blog post](https://medium.com/@martin.pons.martinez/two-discounted-coffees-better-than-one-34fc726f1bfb) there is a more detailed and complete version of the analysis
+
 ## Data
 
 The Starbucks dataset consists in three tables
