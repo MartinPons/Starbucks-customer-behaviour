@@ -81,7 +81,7 @@ Below there is a plot summarizing the likelihood of completing an offer for ever
 	-  visualizations.py: functions for visualize the data for communicative purposes.
 - **processed_data**: folder containing a csv file and a pickle file, which are the result of running the wrangling and EDA notebooks and obtaining tables with the offer completion status in different states of cleanliness.
 - **raw_data**: folder containing the three files from the Starbucks dataset: `portfolio`, `profile` and `transcript`.
--**visualizations**: folder with the visualizations used to communicate the findings of the analysis.
+- **visualizations**: folder with the visualizations used to communicate the findings of the analysis.
 - **01-Data Wrangling.ipynb** notebook with the data wrangling process. The outcome of this process is the `offers` data frame, with the completion status of each offer properly classified.
 - **02-EDA.ipynb**: notebook with the data exploration which includes visualization, tables and briefly explains the interesting findings. Additional cleaning is also perfomed in this notebook.
 - **03-Modeling.ipynb**: notebook containing the model fitting and the outcome.
