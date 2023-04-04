@@ -57,7 +57,7 @@ Strong effects were also found for the channel distribution, and effects of some
 
 ## Modeling
 
-Since the major difference among the offer characteristics is the offer type, the main goal of the analysis is to know how different customer characteristics affect the likelihood of completion for each type of offer. Since this goal is explanatory in nature, a model which provides an explanatory outcome is needed. Taking this in mind two different logistic models have been fitted . These models differ in how the offer type has been introduced: in the first model, it's specified as a predictor together with other potential predictors like income or age. In the second model the offer type interacts with every other variable in the model. If this second model perform better than the former., it's concluded that the offer types affect in a different way different groups of people.
+Since the major difference among the offer characteristics is the offer type, the main goal of the analysis is to know how different customer characteristics affect the likelihood of completion for each type of offer. Since this goal is explanatory in nature, a model which provides an explanatory outcome is needed. Taking this in mind two different logistic models have been fitted . These models differ in how the offer type has been introduced: in the first model, it's specified as a predictor together with other potential predictors like income or age. In the second model the offer type interacts with every other variable in the model. If this second model perform better than the former., it's concluded that the offer types affect in a different way different groups of people. Parameter tunning has also been conducted in order to obtain additional improvements from these models.
 
 No additional models have been tested. A more complex modeling could have been tried, increasing interception layers corrisng, age, gender and channel in a unique predictor for instance, but simplicity for the results has been prioritized over a more accuracte prediction.
 
@@ -89,6 +89,22 @@ Below there is a plot summarizing the likelihood of completing an offer for ever
 - **README.md**: a readme file with a summary of the analysis.
 - **requirements.txt**: requirements file with the modules used in the analysis.
 
+## Installation and libraries
+
+This code runs with Python version 3.9.13. This are the libraries that have been use for this project
+
+matplotlib==3.5.2
+numpy==1.21.5
+pandas==1.4.4
+patsy==0.5.2
+scikit_learn==1.2.2
+seaborn==0.11.2
+statsmodels==0.13.2
+
+
+# Adnowledgements
+
+The Data from this project is provided by Starbucks, which uses a program to simulate "how people make purchasing decisions and how those decisions are influenced by promotional offers". The dataset is part of a set of projects in the Data Science nanodegree by Udacity, and it's currently available in the [Kaggle website](https://www.kaggle.com/datasets/ihormuliar/starbucks-customer-data).
 
 
 

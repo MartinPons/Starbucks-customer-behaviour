@@ -7,6 +7,7 @@ import itertools
 OFFERS_PAL_DICT = {'Discount': "#4F6BA7",
                 'Bogo': "#84A8C7",
                 'Informational': "#BBBFA2"}
+
 def group_and_smooth(offers, group_vars):
     '''Groups categoric variables from the offers DataFrame, including offer_type, averages the "completed" variable
      generating a ratio of completion. Then smoothes it applying a rolling average average of order 7 grouping by categorical
